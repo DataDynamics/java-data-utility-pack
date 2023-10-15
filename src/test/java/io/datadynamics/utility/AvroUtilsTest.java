@@ -1,4 +1,4 @@
-package io.datadynamics.utility.avro;
+package io.datadynamics.utility;
 
 import io.datadynamics.utility.AvroUtils;
 import io.datadynamics.utility.TypeMapping;

@@ -1,4 +1,4 @@
-package io.datadynamics.utility.util;
+package io.datadynamics.utility;
 
 import io.datadynamics.utility.DataUtils;
 import org.junit.jupiter.api.Test;
