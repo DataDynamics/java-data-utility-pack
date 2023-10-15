@@ -70,51 +70,6 @@ public class TimestampUtils {
     }
 
     /**
-     * 현재 시간을 기준으로 "<tt>YYYYMMDDHH</tt>" 형식의 타임 스탬프를 생성한다.
-     *
-     * @return "<tt>YYYYMMDDHH</tt>" 형식의 문자열 타임 스탬프
-     */
-    public String getTomorrow() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
-        LocalDateTime now = LocalDateTime.now();
-        return formatter.format(plusDays(now, 1));
-    }
-
-    /**
-     * 현재 시간을 기준으로 "<tt>YYYYMMDD</tt>" 형식의 어제 날짜를 생성한다.
-     *
-     * @return "<tt>YYYYMMDD</tt>" 형식의 문자열 타임 스탬프
-     */
-    public String getYesterday() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
-        LocalDateTime now = LocalDateTime.now();
-        return formatter.format(plusDays(now, -1));
-
-    }
-
-    /**
-     * 현재 시간을 기준으로 "<tt>YYYYMMDD</tt>" 형식의 엊그제 날짜를 생성한다.
-     *
-     * @return "<tt>YYYYMMDD</tt>" 형식의 문자열 타임 스탬프
-     */
-    public String getADayBeforeYesterday() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
-        LocalDateTime now = LocalDateTime.now();
-        return formatter.format(plusDays(now, -2));
-    }
-
-    /**
-     * 현재 시간을 기준으로 "<tt>YYYYMMDD</tt>" 형식의 엊그제 날짜를 생성한다.
-     *
-     * @return "<tt>YYYYMMDD</tt>" 형식의 문자열 타임 스탬프
-     */
-    public String getToday() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
-        LocalDateTime now = LocalDateTime.now();
-        return formatter.format(now);
-    }
-
-    /**
      * 현재 날짜와 시각을 "yyyyMMddhhmmss" 형태로 변환한다.
      * <p>
      * <pre>
@@ -194,5 +149,50 @@ public class TimestampUtils {
         final Calendar c = Calendar.getInstance();
         c.setTime(Objects.requireNonNull(date, "date"));
         return c;
+    }
+
+    /**
+     * 현재 시간을 기준으로 "<tt>YYYYMMDDHH</tt>" 형식의 타임 스탬프를 생성한다.
+     *
+     * @return "<tt>YYYYMMDDHH</tt>" 형식의 문자열 타임 스탬프
+     */
+    public String getTomorrow() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
+        LocalDateTime now = LocalDateTime.now();
+        return formatter.format(plusDays(now, 1));
+    }
+
+    /**
+     * 현재 시간을 기준으로 "<tt>YYYYMMDD</tt>" 형식의 어제 날짜를 생성한다.
+     *
+     * @return "<tt>YYYYMMDD</tt>" 형식의 문자열 타임 스탬프
+     */
+    public String getYesterday() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
+        LocalDateTime now = LocalDateTime.now();
+        return formatter.format(plusDays(now, -1));
+
+    }
+
+    /**
+     * 현재 시간을 기준으로 "<tt>YYYYMMDD</tt>" 형식의 엊그제 날짜를 생성한다.
+     *
+     * @return "<tt>YYYYMMDD</tt>" 형식의 문자열 타임 스탬프
+     */
+    public String getADayBeforeYesterday() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
+        LocalDateTime now = LocalDateTime.now();
+        return formatter.format(plusDays(now, -2));
+    }
+
+    /**
+     * 현재 시간을 기준으로 "<tt>YYYYMMDD</tt>" 형식의 엊그제 날짜를 생성한다.
+     *
+     * @return "<tt>YYYYMMDD</tt>" 형식의 문자열 타임 스탬프
+     */
+    public String getToday() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
+        LocalDateTime now = LocalDateTime.now();
+        return formatter.format(now);
     }
 }

@@ -721,8 +721,7 @@ public class StringUtils {
                 newPath += FOLDER_SEPARATOR;
             }
             return newPath + relativePath;
-        }
-        else {
+        } else {
             return relativePath;
         }
     }
