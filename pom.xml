@@ -6,7 +6,7 @@
     <groupId>io.datadynamics</groupId>
     <artifactId>java-data-utility-pack</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <name>Jav Data Utility Pack</name>
+    <name>Java Data Utility Pack</name>
     <packaging>jar</packaging>
 
     <properties>
@@ -14,6 +14,8 @@
 
         <!-- Maven Plugin -->
         <maven.compiler.version>3.11.0</maven.compiler.version>
+        <maven.avro.version>1.11.3</maven.avro.version>
+        <maven.clover.version>4.5.0</maven.clover.version>
 
         <!-- Dependency -->
         <commons.lang3.version>3.13.0</commons.lang3.version>
@@ -48,7 +50,7 @@
             <plugin>
                 <groupId>org.apache.avro</groupId>
                 <artifactId>avro-maven-plugin</artifactId>
-                <version>1.11.3</version>
+                <version>${maven.avro.version}</version>
                 <executions>
                     <execution>
                         <phase>generate-sources</phase>
@@ -61,6 +63,30 @@
                             <!-- bytes의 decimal을 쓰려면 이 옵션을 true -->
                             <enableDecimalLogicalType>true</enableDecimalLogicalType>
                         </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.openclover</groupId>
+                <artifactId>clover-maven-plugin</artifactId>
+                <version>${maven.clover.version}</version>
+                <configuration>
+                    <generateHtml>false</generateHtml>
+                    <generatePdf>true</generatePdf>
+                    <generateHistorical>true</generateHistorical>
+                    <cloverDatabase>${project.build.directory}/clover/db/clover.db</cloverDatabase>
+                    <outputDirectory>${project.build.directory}/clover/report</outputDirectory>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>clover</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>instrument</goal>
+                            <goal>check</goal>
+                            <goal>clover</goal>
+                        </goals>
                     </execution>
                 </executions>
             </plugin>
@@ -173,6 +199,16 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.openclover</groupId>
+                <artifactId>clover-maven-plugin</artifactId>
+                <version>${maven.clover.version}</version>
+            </plugin>
+        </plugins>
+    </reporting>
 
     <dependencyManagement>
         <dependencies>
