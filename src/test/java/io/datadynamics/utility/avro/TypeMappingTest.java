@@ -1,6 +1,6 @@
 package io.datadynamics.utility.avro;
 
-import io.datadynamics.utility.file.TypeMapping;
+import io.datadynamics.utility.TypeMapping;
 import org.junit.Assert;
 import org.junit.Test;
 
