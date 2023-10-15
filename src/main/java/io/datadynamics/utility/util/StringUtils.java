@@ -3,8 +3,21 @@ package io.datadynamics.utility.util;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.StringTokenizer;
 
 public class StringUtils {
+
+    private static final String[] EMPTY_STRING_ARRAY = {};
+
+    private static final String FOLDER_SEPARATOR = "/";
+
+    private static final String WINDOWS_FOLDER_SEPARATOR = "\\";
+
+    private static final String TOP_PATH = "..";
+
+    private static final String CURRENT_PATH = ".";
+
+    private static final char EXTENSION_SEPARATOR = '.';
 
     public static boolean isBlank(String string) {
         if (isEmpty(string)) {
@@ -394,5 +407,193 @@ public class StringUtils {
         return builder.toString();
     }
 
+    public static boolean hasText(String str) {
+        return (str != null && !str.isEmpty() && containsText(str));
+    }
+
+    private static boolean containsText(CharSequence str) {
+        int strLen = str.length();
+        for (int i = 0; i < strLen; i++) {
+            if (!Character.isWhitespace(str.charAt(i))) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean substringMatch(CharSequence str, int index, CharSequence substring) {
+        if (index + substring.length() > str.length()) {
+            return false;
+        }
+        for (int i = 0; i < substring.length(); i++) {
+            if (str.charAt(index + i) != substring.charAt(i)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static int countOccurrencesOf(String str, String sub) {
+        if (!hasLength(str) || !hasLength(sub)) {
+            return 0;
+        }
+
+        int count = 0;
+        int pos = 0;
+        int idx;
+        while ((idx = str.indexOf(sub, pos)) != -1) {
+            ++count;
+            pos = idx + sub.length();
+        }
+        return count;
+    }
+
+    public static String getFilename(String path) {
+        if (path == null) {
+            return null;
+        }
+
+        int separatorIndex = path.lastIndexOf(FOLDER_SEPARATOR);
+        return (separatorIndex != -1 ? path.substring(separatorIndex + 1) : path);
+    }
+
+    public static String getFilenameExtension(String path) {
+        if (path == null) {
+            return null;
+        }
+
+        int extIndex = path.lastIndexOf(EXTENSION_SEPARATOR);
+        if (extIndex == -1) {
+            return null;
+        }
+
+        int folderIndex = path.lastIndexOf(FOLDER_SEPARATOR);
+        if (folderIndex > extIndex) {
+            return null;
+        }
+
+        return path.substring(extIndex + 1);
+    }
+
+    public static boolean containsWhitespace(CharSequence str) {
+        if (!hasLength(str)) {
+            return false;
+        }
+
+        int strLen = str.length();
+        for (int i = 0; i < strLen; i++) {
+            if (Character.isWhitespace(str.charAt(i))) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean containsWhitespace(String str) {
+        return containsWhitespace((CharSequence) str);
+    }
+
+    public static boolean startsWithIgnoreCase(String str, String prefix) {
+        return (str != null && prefix != null && str.length() >= prefix.length() &&
+                str.regionMatches(true, 0, prefix, 0, prefix.length()));
+    }
+
+    public static boolean endsWithIgnoreCase(String str, String suffix) {
+        return (str != null && suffix != null && str.length() >= suffix.length() &&
+                str.regionMatches(true, str.length() - suffix.length(), suffix, 0, suffix.length()));
+    }
+
+    public static String trimWhitespace(String str) {
+        if (!hasLength(str)) {
+            return str;
+        }
+
+        int beginIndex = 0;
+        int endIndex = str.length() - 1;
+
+        while (beginIndex <= endIndex && Character.isWhitespace(str.charAt(beginIndex))) {
+            beginIndex++;
+        }
+
+        while (endIndex > beginIndex && Character.isWhitespace(str.charAt(endIndex))) {
+            endIndex--;
+        }
+
+        return str.substring(beginIndex, endIndex + 1);
+    }
+
+    public static String delete(String inString, String pattern) {
+        return replace(inString, pattern, "");
+    }
+
+    public static String quote(String str) {
+        return (str != null ? "'" + str + "'" : null);
+    }
+
+    public static Object quoteIfString(Object obj) {
+        return (obj instanceof String ? quote((String) obj) : obj);
+    }
+
+    public static String unqualify(String qualifiedName) {
+        return unqualify(qualifiedName, '.');
+    }
+
+    public static String unqualify(String qualifiedName, char separator) {
+        return qualifiedName.substring(qualifiedName.lastIndexOf(separator) + 1);
+    }
+
+    public static String capitalize(String str) {
+        return changeFirstCharacterCase(str, true);
+    }
+
+    public static String uncapitalize(String str) {
+        return changeFirstCharacterCase(str, false);
+    }
+
+    private static String changeFirstCharacterCase(String str, boolean capitalize) {
+        if (!hasLength(str)) {
+            return str;
+        }
+
+        char baseChar = str.charAt(0);
+        char updatedChar;
+        if (capitalize) {
+            updatedChar = Character.toUpperCase(baseChar);
+        } else {
+            updatedChar = Character.toLowerCase(baseChar);
+        }
+        if (baseChar == updatedChar) {
+            return str;
+        }
+
+        char[] chars = str.toCharArray();
+        chars[0] = updatedChar;
+        return new String(chars);
+    }
+
+    public static String[] tokenizeToStringArray(String str, String delimiters) {
+        return tokenizeToStringArray(str, delimiters, true, true);
+    }
+
+    public static String[] tokenizeToStringArray(
+            String str, String delimiters, boolean trimTokens, boolean ignoreEmptyTokens) {
+
+        if (str == null) {
+            return EMPTY_STRING_ARRAY;
+        }
+
+        StringTokenizer st = new StringTokenizer(str, delimiters);
+        List<String> tokens = new ArrayList<>();
+        while (st.hasMoreTokens()) {
+            String token = st.nextToken();
+            if (trimTokens) {
+                token = token.trim();
+            }
+            if (!ignoreEmptyTokens || token.length() > 0) {
+                tokens.add(token);
+            }
+        }
+        return toStringArray(tokens);
+    }
 
 }
