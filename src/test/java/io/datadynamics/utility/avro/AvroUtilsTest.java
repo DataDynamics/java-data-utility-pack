@@ -72,7 +72,7 @@ public class AvroUtilsTest {
                 "  ]\n" +
                 "}";
 
-        Schema schema = AvroUtils.parseAvroJson(avroSchemaJson);
+        Schema schema = AvroUtils.parse(avroSchemaJson);
 
         Assert.assertNotNull(schema);
         Assert.assertTrue(12 == schema.getFields().size());

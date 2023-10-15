@@ -5,6 +5,9 @@ import org.apache.avro.Schema;
 import org.apache.avro.SchemaBuilder;
 import org.apache.avro.file.CodecFactory;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 
 public class AvroUtils {
@@ -15,7 +18,7 @@ public class AvroUtils {
      * @param json Avro Schema JSON
      * @return Avro Schema Object
      */
-    public static Schema parseAvroJson(String json) {
+    public static Schema parse(String json) {
         Schema.Parser parser = new Schema.Parser();
         return parser.parse(json);
     }
@@ -78,6 +81,35 @@ public class AvroUtils {
             default:
                 fields.name(name).type().nullable().stringType().noDefault();
         }
+    }
+
+    public static boolean isNullable(final Schema schema) {
+        final Schema.Type schemaType = schema.getType();
+        if (schemaType == Schema.Type.UNION) {
+            for (final Schema unionSchema : schema.getTypes()) {
+                if (isNullable(unionSchema)) {
+                    return true;
+                }
+            }
+        }
+
+        return schemaType == Schema.Type.NULL;
+    }
+
+    public static List<Schema> getNonNullSubSchemas(final Schema avroSchema) {
+        final List<Schema> unionFieldSchemas = avroSchema.getTypes();
+        if (unionFieldSchemas == null) {
+            return Collections.emptyList();
+        }
+
+        final List<Schema> nonNullTypes = new ArrayList<>(unionFieldSchemas.size());
+        for (final Schema fieldSchema : unionFieldSchemas) {
+            if (fieldSchema.getType() != Schema.Type.NULL) {
+                nonNullTypes.add(fieldSchema);
+            }
+        }
+
+        return nonNullTypes;
     }
 
     public static CodecFactory getCodecFactory(String property) {
