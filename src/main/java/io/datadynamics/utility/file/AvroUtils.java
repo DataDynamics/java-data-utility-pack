@@ -1,4 +1,4 @@
-package io.datadynamics.utility.avro;
+package io.datadynamics.utility.file;
 
 import org.apache.avro.LogicalTypes;
 import org.apache.avro.Schema;

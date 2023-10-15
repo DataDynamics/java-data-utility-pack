@@ -1,6 +1,6 @@
-package io.datadynamics.utility.avro;
+package io.datadynamics.utility.file;
 
-import io.datadynamics.utility.util.StringUtils;
+import io.datadynamics.utility.StringUtils;
 import lombok.Data;
 
 import java.util.HashMap;

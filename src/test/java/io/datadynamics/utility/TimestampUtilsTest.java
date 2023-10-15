@@ -1,6 +1,5 @@
 package io.datadynamics.utility;
 
-import io.datadynamics.utility.timestamp.TimestampUtils;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 

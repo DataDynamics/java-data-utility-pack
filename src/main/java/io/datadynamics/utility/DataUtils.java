@@ -1,4 +1,4 @@
-package io.datadynamics.utility.util;
+package io.datadynamics.utility;
 
 import com.google.common.base.Joiner;
 import org.apache.commons.lang3.RandomStringUtils;

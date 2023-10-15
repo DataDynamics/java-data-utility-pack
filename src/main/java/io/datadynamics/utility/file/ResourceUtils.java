@@ -1,7 +1,7 @@
 package io.datadynamics.utility.file;
 
 
-import io.datadynamics.utility.util.StringUtils;
+import io.datadynamics.utility.StringUtils;
 
 import java.io.File;
 import java.io.FileNotFoundException;

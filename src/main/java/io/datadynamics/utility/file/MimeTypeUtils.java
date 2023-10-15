@@ -1,6 +1,6 @@
 package io.datadynamics.utility.file;
 
-import io.datadynamics.utility.util.StringUtils;
+import io.datadynamics.utility.StringUtils;
 
 import java.nio.charset.StandardCharsets;
 import java.nio.charset.UnsupportedCharsetException;
