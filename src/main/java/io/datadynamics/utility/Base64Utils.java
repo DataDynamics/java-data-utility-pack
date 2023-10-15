@@ -5,9 +5,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
 public abstract class Base64Utils {
-
     private static final Charset DEFAULT_CHARSET = StandardCharsets.UTF_8;
-
 
     /**
      * Base64-encode the given byte array.

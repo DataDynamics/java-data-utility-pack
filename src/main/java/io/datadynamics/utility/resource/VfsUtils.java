@@ -13,12 +13,12 @@ import java.net.URL;
 
 public abstract class VfsUtils {
 
+    protected static final Class<?> VIRTUAL_FILE_VISITOR_INTERFACE;
+    protected static final Method VIRTUAL_FILE_METHOD_VISIT;
     private static final String VFS3_PKG = "org.jboss.vfs.";
     private static final String VFS_NAME = "VFS";
-
     private static final Method VFS_METHOD_GET_ROOT_URL;
     private static final Method VFS_METHOD_GET_ROOT_URI;
-
     private static final Method VIRTUAL_FILE_METHOD_EXISTS;
     private static final Method VIRTUAL_FILE_METHOD_GET_INPUT_STREAM;
     private static final Method VIRTUAL_FILE_METHOD_GET_SIZE;
@@ -29,10 +29,6 @@ public abstract class VfsUtils {
     private static final Method VIRTUAL_FILE_METHOD_GET_PATH_NAME;
     private static final Method VIRTUAL_FILE_METHOD_GET_PHYSICAL_FILE;
     private static final Method VIRTUAL_FILE_METHOD_GET_CHILD;
-
-    protected static final Class<?> VIRTUAL_FILE_VISITOR_INTERFACE;
-    protected static final Method VIRTUAL_FILE_METHOD_VISIT;
-
     private static final Field VISITOR_ATTRIBUTES_FIELD_RECURSE;
 
     static {

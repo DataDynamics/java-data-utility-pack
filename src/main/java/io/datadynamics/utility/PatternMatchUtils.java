@@ -3,11 +3,8 @@ package io.datadynamics.utility;
 /**
  * Utility methods for simple pattern matching, in particular for
  * Spring's typical "xxx*", "*xxx" and "*xxx*" pattern styles.
- *
- * @author Juergen Hoeller
- * @since 2.0
  */
-public abstract class PatternMatchUtils {
+public class PatternMatchUtils {
 
     /**
      * Match a String against the given pattern, supporting the following simple

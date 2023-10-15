@@ -19,9 +19,6 @@ import java.util.Set;
 
 /**
  * Spring ResourceLoader over Hadoop FileSystem.
- *
- * @author Costin Leau
- * @author Janne Valkealahti
  */
 public class HdfsResourceLoader extends DefaultResourceLoader implements ResourcePatternResolver, PriorityOrdered, Closeable {
 
@@ -118,6 +115,27 @@ public class HdfsResourceLoader extends DefaultResourceLoader implements Resourc
         this.fs = fs;
         internalFS = false;
         codecsFactory = new CompressionCodecFactory(fs.getConf());
+    }
+
+    /**
+     * Removes a prefix from a given path and what's
+     * left is a real 'file' path
+     */
+    private static String stripPrefix(String path) {
+        String ret = null;
+        try {
+            ret = new Path(path).toUri().getPath();
+        } catch (Exception e) {
+        }
+        if (ret == null && path.startsWith(HDFS_URL_PREFIX) && !path.startsWith("hdfs://")) {
+            // check if path is 'hdfs:myfile.txt', strip prefix and colon
+            ret = path.substring(5);
+        }
+        if (ret == null) {
+            // fall back to given path
+            ret = path;
+        }
+        return ret;
     }
 
     @Override
@@ -413,27 +431,6 @@ public class HdfsResourceLoader extends DefaultResourceLoader implements Resourc
 
     private CompressionCodecFactory codecs() {
         return (useCodecs ? codecsFactory : null);
-    }
-
-    /**
-     * Removes a prefix from a given path and what's
-     * left is a real 'file' path
-     */
-    private static String stripPrefix(String path) {
-        String ret = null;
-        try {
-            ret = new Path(path).toUri().getPath();
-        } catch (Exception e) {
-        }
-        if (ret == null && path.startsWith(HDFS_URL_PREFIX) && !path.startsWith("hdfs://")) {
-            // check if path is 'hdfs:myfile.txt', strip prefix and colon
-            ret = path.substring(5);
-        }
-        if (ret == null) {
-            // fall back to given path
-            ret = path;
-        }
-        return ret;
     }
 
 }

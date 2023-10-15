@@ -1,6 +1,12 @@
 package io.datadynamics.utility.resource;
 
 
+import io.datadynamics.utility.Assert;
+import io.datadynamics.utility.StringUtils;
+import org.apache.hadoop.fs.*;
+import org.apache.hadoop.io.compress.CompressionCodec;
+import org.apache.hadoop.io.compress.CompressionCodecFactory;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -8,37 +14,23 @@ import java.io.OutputStream;
 import java.net.URI;
 import java.net.URL;
 
-import io.datadynamics.utility.Assert;
-import io.datadynamics.utility.StringUtils;
-import org.apache.hadoop.fs.FileStatus;
-import org.apache.hadoop.fs.FileSystem;
-import org.apache.hadoop.fs.LocalFileSystem;
-import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.fs.RawLocalFileSystem;
-import org.apache.hadoop.io.compress.CompressionCodec;
-import org.apache.hadoop.io.compress.CompressionCodecFactory;
-
 /**
  * {@link Resource} implementation over HDFS {@link Path}s.
- *
- * @author Costin Leau
- * @author Janne Valkealahti
- *
  */
-class HdfsResource implements ContextResource, WritableResource {
+public class HdfsResource implements ContextResource, WritableResource {
 
     private final String location;
     private final Path path;
     private final FileSystem fs;
-    private boolean exists;
     private final FileStatus status;
     private final CompressionCodecFactory codecsFactory;
+    private boolean exists;
 
     /**
      * Instantiates a new hdfs resource.
      *
-     * @param location the location
-     * @param fs the fs
+     * @param location      the location
+     * @param fs            the fs
      * @param codecsFactory the codecs factory
      */
     HdfsResource(String location, FileSystem fs, CompressionCodecFactory codecsFactory) {
@@ -48,9 +40,9 @@ class HdfsResource implements ContextResource, WritableResource {
     /**
      * Instantiates a new hdfs resource.
      *
-     * @param parent the parent
-     * @param child the child
-     * @param fs the fs
+     * @param parent        the parent
+     * @param child         the child
+     * @param fs            the fs
      * @param codecsFactory the codecs factory
      */
     HdfsResource(String parent, String child, FileSystem fs, CompressionCodecFactory codecsFactory) {
@@ -61,9 +53,9 @@ class HdfsResource implements ContextResource, WritableResource {
     /**
      * Instantiates a new hdfs resource.
      *
-     * @param parent the parent
-     * @param child the child
-     * @param fs the fs
+     * @param parent        the parent
+     * @param child         the child
+     * @param fs            the fs
      * @param codecsFactory the codecs factory
      */
     HdfsResource(Path parent, Path child, FileSystem fs, CompressionCodecFactory codecsFactory) {
@@ -73,8 +65,8 @@ class HdfsResource implements ContextResource, WritableResource {
     /**
      * Instantiates a new hdfs resource.
      *
-     * @param path the path
-     * @param fs the fs
+     * @param path          the path
+     * @param fs            the fs
      * @param codecsFactory the codecs factory
      */
     @SuppressWarnings("deprecation")
@@ -200,6 +192,7 @@ class HdfsResource implements ContextResource, WritableResource {
 
     /**
      * This implementation returns the description of this resource.
+     *
      * @see #getDescription()
      */
     @Override
@@ -209,6 +202,7 @@ class HdfsResource implements ContextResource, WritableResource {
 
     /**
      * This implementation compares description strings.
+     *
      * @see #getDescription()
      */
     @Override

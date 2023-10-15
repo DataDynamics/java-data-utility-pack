@@ -5,11 +5,6 @@ import java.util.*;
 /**
  * Miscellaneous collection utility methods.
  * Mainly for internal use within the framework.
- *
- * @author Juergen Hoeller
- * @author Rob Harrop
- * @author Arjen Poutsma
- * @since 1.1.3
  */
 public class CollectionUtils {
 

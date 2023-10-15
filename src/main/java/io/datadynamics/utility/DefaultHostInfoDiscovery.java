@@ -22,8 +22,6 @@ import java.util.*;
  * <li>cidr notation to match if from a network/mask is taken in defined
  * <li>what is left, first found ip is taken
  * </ul>
- *
- * @author Janne Valkealahti
  */
 public class DefaultHostInfoDiscovery implements HostInfoDiscovery {
 
@@ -195,6 +193,12 @@ public class DefaultHostInfoDiscovery implements HostInfoDiscovery {
         return interfaces;
     }
 
+    @Override
+    public String toString() {
+        return "DefaultHostInfoDiscovery [matchIpv4=" + matchIpv4 + ", matchInterface=" + matchInterface + ", preferInterface="
+                + preferInterface + ", pointToPoint=" + pointToPoint + ", loopback=" + loopback + "]";
+    }
+
     /**
      * Comparator to sort with nic index.
      */
@@ -235,12 +239,6 @@ public class DefaultHostInfoDiscovery implements HostInfoDiscovery {
             }
             return false;
         }
-    }
-
-    @Override
-    public String toString() {
-        return "DefaultHostInfoDiscovery [matchIpv4=" + matchIpv4 + ", matchInterface=" + matchInterface + ", preferInterface="
-                + preferInterface + ", pointToPoint=" + pointToPoint + ", loopback=" + loopback + "]";
     }
 
 }

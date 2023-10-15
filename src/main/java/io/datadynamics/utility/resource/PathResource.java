@@ -22,12 +22,9 @@ import java.nio.file.*;
  * This {@code PathResource} is effectively a pure {@code java.nio.path.Path}
  * based alternative with different {@code createRelative} behavior.
  *
- * @author Philippe Marschall
- * @author Juergen Hoeller
  * @see java.nio.file.Path
  * @see java.nio.file.Files
  * @see FileSystemResource
- * @since 4.0
  */
 public class PathResource extends AbstractResource implements WritableResource {
 

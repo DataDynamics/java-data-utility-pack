@@ -9,16 +9,6 @@ import java.util.Map;
 /**
  * Simple utility class for working with the reflection API and handling
  * reflection exceptions.
- *
- * <p>Only intended for internal use.
- *
- * @author Juergen Hoeller
- * @author Rob Harrop
- * @author Rod Johnson
- * @author Costin Leau
- * @author Sam Brannen
- * @author Chris Beams
- * @since 1.2.2
  */
 public class ReflectionUtils {
 

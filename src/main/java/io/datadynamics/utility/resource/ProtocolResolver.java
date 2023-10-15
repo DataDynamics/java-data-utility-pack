@@ -1,9 +1,5 @@
 package io.datadynamics.utility.resource;
 
-import io.datadynamics.utility.resource.DefaultResourceLoader;
-import io.datadynamics.utility.resource.Resource;
-import io.datadynamics.utility.resource.ResourceLoader;
-
 /**
  * A resolution strategy for protocol-specific resource handles.
  *
@@ -11,9 +7,7 @@ import io.datadynamics.utility.resource.ResourceLoader;
  * custom protocols to be handled without subclassing the loader
  * implementation (or application context implementation).
  *
- * @author Juergen Hoeller
  * @see DefaultResourceLoader#addProtocolResolver
- * @since 4.3
  */
 @FunctionalInterface
 public interface ProtocolResolver {

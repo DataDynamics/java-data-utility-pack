@@ -11,8 +11,6 @@ import java.util.*;
 
 /**
  * Reusable utility class for common {@link Configuration} operations.
- *
- * @author Costin Leau
  */
 public abstract class ConfigurationUtils {
 

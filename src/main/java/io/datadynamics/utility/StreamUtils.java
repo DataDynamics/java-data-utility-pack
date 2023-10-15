@@ -3,7 +3,7 @@ package io.datadynamics.utility;
 import java.io.*;
 import java.nio.charset.Charset;
 
-public abstract class StreamUtils {
+public class StreamUtils {
 
     /**
      * The default buffer size used when copying bytes.

@@ -8,8 +8,6 @@ import java.util.Map;
  *
  * @param <K> the key type
  * @param <V> the value element type
- * @author Arjen Poutsma
- * @since 3.0
  */
 public interface MultiValueMap<K, V> extends Map<K, List<V>> {
 

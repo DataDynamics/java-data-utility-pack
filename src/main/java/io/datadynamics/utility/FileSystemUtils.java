@@ -11,12 +11,9 @@ import static java.nio.file.FileVisitOption.FOLLOW_LINKS;
 /**
  * Utility methods for working with the file system.
  *
- * @author Rob Harrop
- * @author Juergen Hoeller
  * @see java.io.File
  * @see java.nio.file.Path
  * @see java.nio.file.Files
- * @since 2.5.3
  */
 public class FileSystemUtils {
 

@@ -1,7 +1,5 @@
 package io.datadynamics.utility.resource;
 
-import io.datadynamics.utility.resource.Resource;
-
 public interface ContextResource extends Resource {
 
     /**

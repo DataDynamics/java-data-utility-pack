@@ -9,8 +9,6 @@ import java.util.Properties;
 
 /**
  * Reusable utility class for common {@link org.apache.hadoop.mapred.JobConf} operations.
- *
- * @author Thomas Risberg
  */
 public abstract class JobConfUtils {
 

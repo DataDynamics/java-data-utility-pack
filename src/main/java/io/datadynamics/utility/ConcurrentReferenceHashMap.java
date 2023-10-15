@@ -30,9 +30,6 @@ import java.util.concurrent.locks.ReentrantLock;
  *
  * @param <K> the key type
  * @param <V> the value type
- * @author Phillip Webb
- * @author Juergen Hoeller
- * @since 3.2
  */
 public class ConcurrentReferenceHashMap<K, V> extends AbstractMap<K, V> implements ConcurrentMap<K, V> {
 

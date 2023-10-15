@@ -20,11 +20,6 @@ import java.util.concurrent.TimeUnit;
  *
  * <p>As of Spring Framework 5.2, running time is tracked and reported in
  * nanoseconds.
- *
- * @author Rod Johnson
- * @author Juergen Hoeller
- * @author Sam Brannen
- * @since May 2, 2001
  */
 public class StopWatch {
 
@@ -34,11 +29,8 @@ public class StopWatch {
      * distinguish between them in log or console output.
      */
     private final String id;
-
-    private boolean keepTaskList = true;
-
     private final List<TaskInfo> taskList = new ArrayList<>(1);
-
+    private boolean keepTaskList = true;
     /**
      * Start time of the current task.
      */
@@ -81,6 +73,13 @@ public class StopWatch {
         this.id = id;
     }
 
+    private static long nanosToMillis(long duration) {
+        return TimeUnit.NANOSECONDS.toMillis(duration);
+    }
+
+    private static double nanosToSeconds(long duration) {
+        return duration / 1_000_000_000.0;
+    }
 
     /**
      * Get the ID of this {@code StopWatch}, as specified on construction.
@@ -103,7 +102,6 @@ public class StopWatch {
     public void setKeepTaskList(boolean keepTaskList) {
         this.keepTaskList = keepTaskList;
     }
-
 
     /**
      * Start an unnamed task.
@@ -221,7 +219,6 @@ public class StopWatch {
         return this.lastTaskInfo;
     }
 
-
     /**
      * Get the total time in nanoseconds for all tasks.
      *
@@ -269,7 +266,6 @@ public class StopWatch {
         }
         return this.taskList.toArray(new TaskInfo[0]);
     }
-
 
     /**
      * Get a short description of the total running time.
@@ -326,16 +322,6 @@ public class StopWatch {
         }
         return sb.toString();
     }
-
-
-    private static long nanosToMillis(long duration) {
-        return TimeUnit.NANOSECONDS.toMillis(duration);
-    }
-
-    private static double nanosToSeconds(long duration) {
-        return duration / 1_000_000_000.0;
-    }
-
 
     /**
      * Nested class to hold data about one task executed within the {@code StopWatch}.

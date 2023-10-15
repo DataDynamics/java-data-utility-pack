@@ -1,6 +1,7 @@
 package io.datadynamics.utility.resource;
 
-import io.datadynamics.utility.*;
+import io.datadynamics.utility.Assert;
+import io.datadynamics.utility.StringUtils;
 
 import java.io.*;
 import java.net.URI;
@@ -28,7 +29,6 @@ import java.nio.file.*;
  * @see #FileSystemResource(Path)
  * @see java.io.File
  * @see java.nio.file.Files
- * @since 28.12.2003
  */
 public class FileSystemResource extends AbstractResource implements WritableResource {
 

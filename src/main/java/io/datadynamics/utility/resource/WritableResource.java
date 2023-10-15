@@ -1,7 +1,5 @@
 package io.datadynamics.utility.resource;
 
-import io.datadynamics.utility.resource.Resource;
-
 import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.channels.Channels;
@@ -11,9 +9,7 @@ import java.nio.channels.WritableByteChannel;
  * Extended interface for a resource that supports writing to it.
  * Provides an {@link #getOutputStream() OutputStream accessor}.
  *
- * @author Juergen Hoeller
  * @see java.io.OutputStream
- * @since 3.1
  */
 public interface WritableResource extends Resource {
 

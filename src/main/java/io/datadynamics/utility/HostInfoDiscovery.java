@@ -3,8 +3,6 @@ package io.datadynamics.utility;
 
 /**
  * Interface used to discover a {@link HostInfo} from a system.
- *
- * @author Janne Valkealahti
  */
 public interface HostInfoDiscovery {
 

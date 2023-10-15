@@ -15,9 +15,6 @@ import java.util.Map;
  *
  * @param <K> the key type
  * @param <V> the value element type
- * @author Arjen Poutsma
- * @author Juergen Hoeller
- * @since 3.0
  */
 public class LinkedMultiValueMap<K, V> extends MultiValueMapAdapter<K, V>  // new public base class in 5.3
         implements Serializable, Cloneable {

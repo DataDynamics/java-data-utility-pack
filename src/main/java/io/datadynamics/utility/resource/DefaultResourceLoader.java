@@ -1,6 +1,9 @@
 package io.datadynamics.utility.resource;
 
-import io.datadynamics.utility.*;
+import io.datadynamics.utility.Assert;
+import io.datadynamics.utility.ClassUtils;
+import io.datadynamics.utility.ResourceUtils;
+import io.datadynamics.utility.StringUtils;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -12,11 +15,9 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class DefaultResourceLoader implements ResourceLoader {
 
-    private ClassLoader classLoader;
-
     private final Set<ProtocolResolver> protocolResolvers = new LinkedHashSet<>(4);
-
     private final Map<Class<?>, Map<Resource, ?>> resourceCaches = new ConcurrentHashMap<>(4);
+    private ClassLoader classLoader;
 
 
     /**
@@ -40,17 +41,6 @@ public class DefaultResourceLoader implements ResourceLoader {
         this.classLoader = classLoader;
     }
 
-
-    /**
-     * Specify the ClassLoader to load class path resources with, or {@code null}
-     * for using the thread context class loader at the time of actual resource access.
-     * <p>The default is that ClassLoader access will happen using the thread context
-     * class loader at the time of actual resource access (since 5.3).
-     */
-    public void setClassLoader(ClassLoader classLoader) {
-        this.classLoader = classLoader;
-    }
-
     /**
      * Return the ClassLoader to load class path resources with.
      * <p>Will get passed to ClassPathResource's constructor for all
@@ -62,6 +52,16 @@ public class DefaultResourceLoader implements ResourceLoader {
 
     public ClassLoader getClassLoader() {
         return (this.classLoader != null ? this.classLoader : ClassUtils.getDefaultClassLoader());
+    }
+
+    /**
+     * Specify the ClassLoader to load class path resources with, or {@code null}
+     * for using the thread context class loader at the time of actual resource access.
+     * <p>The default is that ClassLoader access will happen using the thread context
+     * class loader at the time of actual resource access (since 5.3).
+     */
+    public void setClassLoader(ClassLoader classLoader) {
+        this.classLoader = classLoader;
     }
 
     /**

@@ -1,8 +1,5 @@
 package io.datadynamics.utility.resource;
 
-import io.datadynamics.utility.resource.Resource;
-import io.datadynamics.utility.resource.ResourceLoader;
-
 import java.io.IOException;
 
 /**
@@ -11,7 +8,6 @@ import java.io.IOException;
  *
  * @see Resource
  * @see ResourceLoader
- * @since 1.0.2
  */
 public interface ResourcePatternResolver extends ResourceLoader {
 

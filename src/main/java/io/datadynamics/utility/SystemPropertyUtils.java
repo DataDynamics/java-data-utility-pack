@@ -1,6 +1,5 @@
 package io.datadynamics.utility;
 
-
 /**
  * Helper class for resolving placeholders in texts. Usually applied to file paths.
  *
@@ -8,13 +7,9 @@ package io.datadynamics.utility;
  * e.g. {@code ${user.dir}}. Default values can be supplied using the ":" separator
  * between key and value.
  *
- * @author Juergen Hoeller
- * @author Rob Harrop
- * @author Dave Syer
  * @see #PLACEHOLDER_PREFIX
  * @see #PLACEHOLDER_SUFFIX
  * @see System#getProperty(String)
- * @since 1.2.5
  */
 public abstract class SystemPropertyUtils {
 

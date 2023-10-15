@@ -1,5 +1,6 @@
 package io.datadynamics.utility.resource;
 
+import io.datadynamics.utility.ClassUtils;
 import io.datadynamics.utility.ResourceUtils;
 
 public interface ResourceLoader {
@@ -40,8 +41,8 @@ public interface ResourceLoader {
      *
      * @return the {@code ClassLoader}
      * (only {@code null} if even the system {@code ClassLoader} isn't accessible)
-     * @see org.springframework.util.ClassUtils#getDefaultClassLoader()
-     * @see org.springframework.util.ClassUtils#forName(String, ClassLoader)
+     * @see ClassUtils#getDefaultClassLoader()
+     * @see ClassUtils#forName(String, ClassLoader)
      */
 
     ClassLoader getClassLoader();

@@ -129,12 +129,6 @@ import java.util.zip.ZipException;
  * Ant-style pattern in such a case, which will search <i>all</i> class path
  * locations that contain the root package.
  *
- * @author Juergen Hoeller
- * @author Colin Sampaleanu
- * @author Marius Bogoevici
- * @author Costin Leau
- * @author Phillip Webb
- * @see #CLASSPATH_ALL_URL_PREFIX
  * @see AntPathMatcher
  * @see ResourceLoader#getResource(String)
  * @see ClassLoader#getResources(String)
@@ -214,6 +208,13 @@ public class PathMatchingResourcePatternResolver implements ResourcePatternResol
     }
 
     /**
+     * Return the PathMatcher that this resource pattern resolver uses.
+     */
+    public PathMatcher getPathMatcher() {
+        return this.pathMatcher;
+    }
+
+    /**
      * Set the PathMatcher implementation to use for this
      * resource pattern resolver. Default is AntPathMatcher.
      *
@@ -223,14 +224,6 @@ public class PathMatchingResourcePatternResolver implements ResourcePatternResol
         Assert.notNull(pathMatcher, "PathMatcher must not be null");
         this.pathMatcher = pathMatcher;
     }
-
-    /**
-     * Return the PathMatcher that this resource pattern resolver uses.
-     */
-    public PathMatcher getPathMatcher() {
-        return this.pathMatcher;
-    }
-
 
     @Override
     public Resource getResource(String location) {

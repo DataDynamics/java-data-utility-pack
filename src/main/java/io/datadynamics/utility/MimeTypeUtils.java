@@ -8,13 +8,6 @@ import java.util.stream.Collectors;
 
 /**
  * Miscellaneous {@link MimeType} utility methods.
- *
- * @author Arjen Poutsma
- * @author Rossen Stoyanchev
- * @author Dimitrios Liapis
- * @author Brian Clozel
- * @author Sam Brannen
- * @since 4.0
  */
 public class MimeTypeUtils {
 

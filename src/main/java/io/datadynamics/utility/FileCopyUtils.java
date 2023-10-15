@@ -10,13 +10,10 @@ import java.nio.file.Files;
  *
  * <p>Mainly for use within the framework, but also useful for application code.
  *
- * @author Juergen Hoeller
- * @author Hyunjin Choi
  * @see StreamUtils
  * @see FileSystemUtils
- * @since 06.10.2003
  */
-public abstract class FileCopyUtils {
+public class FileCopyUtils {
 
     /**
      * The default buffer size used when copying bytes.

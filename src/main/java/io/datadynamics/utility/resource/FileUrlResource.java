@@ -14,14 +14,13 @@ import java.nio.file.StandardOpenOption;
 
 public class FileUrlResource extends UrlResource implements WritableResource {
 
-    
     private volatile File file;
-
 
     /**
      * Create a new {@code FileUrlResource} based on the given URL object.
      * <p>Note that this does not enforce "file" as URL protocol. If a protocol
      * is known to be resolvable to a file, it is acceptable for this purpose.
+     *
      * @param url a URL
      * @see ResourceUtils#isFileURL(URL)
      * @see #getFile()
@@ -34,6 +33,7 @@ public class FileUrlResource extends UrlResource implements WritableResource {
      * Create a new {@code FileUrlResource} based on the given file location,
      * using the URL protocol "file".
      * <p>The given parts will automatically get encoded if necessary.
+     *
      * @param location the location (i.e. the file path within that protocol)
      * @throws MalformedURLException if the given URL specification is not valid
      * @see UrlResource#UrlResource(String, String)
@@ -60,8 +60,7 @@ public class FileUrlResource extends UrlResource implements WritableResource {
         try {
             File file = getFile();
             return (file.canWrite() && !file.isDirectory());
-        }
-        catch (IOException ex) {
+        } catch (IOException ex) {
             return false;
         }
     }

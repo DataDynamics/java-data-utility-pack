@@ -18,12 +18,7 @@ import java.util.*;
  * Also has functionality to parse MIME Type values from a {@code String} using
  * {@link #valueOf(String)}. For more parsing options see {@link MimeTypeUtils}.
  *
- * @author Arjen Poutsma
- * @author Juergen Hoeller
- * @author Rossen Stoyanchev
- * @author Sam Brannen
  * @see MimeTypeUtils
- * @since 4.0
  */
 public class MimeType implements Comparable<MimeType>, Serializable {
 

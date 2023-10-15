@@ -14,9 +14,7 @@ import java.net.*;
  * Supports resolution as a {@code URL} and also as a {@code File} in
  * case of the {@code "file:"} protocol.
  *
- * @author Juergen Hoeller
  * @see java.net.URL
- * @since 28.12.2003
  */
 public class UrlResource extends AbstractFileResolvingResource {
 

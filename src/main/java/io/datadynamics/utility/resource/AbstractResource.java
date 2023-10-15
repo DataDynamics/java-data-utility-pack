@@ -2,7 +2,6 @@ package io.datadynamics.utility.resource;
 
 import io.datadynamics.utility.NestedIOException;
 import io.datadynamics.utility.ResourceUtils;
-import io.datadynamics.utility.resource.Resource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,10 +22,6 @@ import java.nio.channels.ReadableByteChannel;
  * <p>The "exists" method will check whether a File or InputStream can
  * be opened; "isOpen" will always return false; "getURL" and "getFile"
  * throw an exception; and "toString" will return the description.
- *
- * @author Juergen Hoeller
- * @author Sam Brannen
- * @since 28.12.2003
  */
 public abstract class AbstractResource implements Resource {
 
