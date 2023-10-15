@@ -16,7 +16,7 @@ public class FileSizeChecker {
     /**
      * 10K Bytes
      */
-    public static long TEN_HUNDRED_KILO_BYTES = 10 * 1024;
+    public static long TEN_KILO_BYTES = 10 * 1024;
 
     /**
      * 100K Bytes
@@ -45,7 +45,7 @@ public class FileSizeChecker {
      * @return 1M 보다 큰 경우 <tt>false</tt>, 작은 경우 <tt>true</tt>
      */
     public static boolean lessThan1KBytes(String path) {
-        return lessThanSpecificSize(ONE_HUNDRED_KILO_BYTES, path);
+        return lessThanSpecificSize(ONE_KILO_BYTES, path);
     }
 
     /**
@@ -55,7 +55,7 @@ public class FileSizeChecker {
      * @return 1M 보다 큰 경우 <tt>false</tt>, 작은 경우 <tt>true</tt>
      */
     public static boolean lessThan10KBytes(String path) {
-        return lessThanSpecificSize(ONE_HUNDRED_KILO_BYTES, path);
+        return lessThanSpecificSize(TEN_KILO_BYTES, path);
     }
 
     /**
@@ -107,3 +107,5 @@ public class FileSizeChecker {
     public static boolean lessThanSpecificSize(long size, String path) {
         return new File(path).length() < size;
     }
+
+}
