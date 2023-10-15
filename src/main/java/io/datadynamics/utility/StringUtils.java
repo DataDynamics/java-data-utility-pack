@@ -1,9 +1,6 @@
 package io.datadynamics.utility;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class StringUtils {
 
@@ -575,8 +572,7 @@ public class StringUtils {
         return tokenizeToStringArray(str, delimiters, true, true);
     }
 
-    public static String[] tokenizeToStringArray(
-            String str, String delimiters, boolean trimTokens, boolean ignoreEmptyTokens) {
+    public static String[] tokenizeToStringArray(String str, String delimiters, boolean trimTokens, boolean ignoreEmptyTokens) {
 
         if (str == null) {
             return EMPTY_STRING_ARRAY;
@@ -596,4 +592,138 @@ public class StringUtils {
         return toStringArray(tokens);
     }
 
+    public static String cleanPath(String path) {
+        if (!hasLength(path)) {
+            return path;
+        }
+
+        String normalizedPath = replace(path, WINDOWS_FOLDER_SEPARATOR, FOLDER_SEPARATOR);
+        String pathToUse = normalizedPath;
+
+        // Shortcut if there is no work to do
+        if (pathToUse.indexOf('.') == -1) {
+            return pathToUse;
+        }
+
+        // Strip prefix from path to analyze, to not treat it as part of the
+        // first path element. This is necessary to correctly parse paths like
+        // "file:core/../core/io/Resource.class", where the ".." should just
+        // strip the first "core" directory while keeping the "file:" prefix.
+        int prefixIndex = pathToUse.indexOf(':');
+        String prefix = "";
+        if (prefixIndex != -1) {
+            prefix = pathToUse.substring(0, prefixIndex + 1);
+            if (prefix.contains(FOLDER_SEPARATOR)) {
+                prefix = "";
+            } else {
+                pathToUse = pathToUse.substring(prefixIndex + 1);
+            }
+        }
+        if (pathToUse.startsWith(FOLDER_SEPARATOR)) {
+            prefix = prefix + FOLDER_SEPARATOR;
+            pathToUse = pathToUse.substring(1);
+        }
+
+        String[] pathArray = delimitedListToStringArray(pathToUse, FOLDER_SEPARATOR);
+        // we never require more elements than pathArray and in the common case the same number
+        Deque<String> pathElements = new ArrayDeque<>(pathArray.length);
+        int tops = 0;
+
+        for (int i = pathArray.length - 1; i >= 0; i--) {
+            String element = pathArray[i];
+            if (CURRENT_PATH.equals(element)) {
+                // Points to current directory - drop it.
+            } else if (TOP_PATH.equals(element)) {
+                // Registering top path found.
+                tops++;
+            } else {
+                if (tops > 0) {
+                    // Merging path element with element corresponding to top path.
+                    tops--;
+                } else {
+                    // Normal path element found.
+                    pathElements.addFirst(element);
+                }
+            }
+        }
+
+        // All path elements stayed the same - shortcut
+        if (pathArray.length == pathElements.size()) {
+            return normalizedPath;
+        }
+        // Remaining top paths need to be retained.
+        for (int i = 0; i < tops; i++) {
+            pathElements.addFirst(TOP_PATH);
+        }
+        // If nothing else left, at least explicitly point to current path.
+        if (pathElements.size() == 1 && pathElements.getLast().isEmpty() && !prefix.endsWith(FOLDER_SEPARATOR)) {
+            pathElements.addFirst(CURRENT_PATH);
+        }
+
+        final String joined = collectionToDelimitedString(pathElements, FOLDER_SEPARATOR);
+        // avoid string concatenation with empty prefix
+        return prefix.isEmpty() ? joined : prefix + joined;
+    }
+
+    public static String collectionToDelimitedString(Collection<?> coll, String delim) {
+        return collectionToDelimitedString(coll, delim, "", "");
+    }
+
+    public static String collectionToCommaDelimitedString(Collection<?> coll) {
+        return collectionToDelimitedString(coll, ",");
+    }
+
+    public static String collectionToDelimitedString(Collection<?> coll, String delim, String prefix, String suffix) {
+        if (CollectionUtils.isEmpty(coll)) {
+            return "";
+        }
+
+        int totalLength = coll.size() * (prefix.length() + suffix.length()) + (coll.size() - 1) * delim.length();
+        for (Object element : coll) {
+            totalLength += String.valueOf(element).length();
+        }
+
+        StringBuilder sb = new StringBuilder(totalLength);
+        Iterator<?> it = coll.iterator();
+        while (it.hasNext()) {
+            sb.append(prefix).append(it.next()).append(suffix);
+            if (it.hasNext()) {
+                sb.append(delim);
+            }
+        }
+        return sb.toString();
+    }
+
+    public static String arrayToDelimitedString(Object[] arr, String delim) {
+        if (ObjectUtils.isEmpty(arr)) {
+            return "";
+        }
+        if (arr.length == 1) {
+            return ObjectUtils.nullSafeToString(arr[0]);
+        }
+
+        StringJoiner sj = new StringJoiner(delim);
+        for (Object elem : arr) {
+            sj.add(String.valueOf(elem));
+        }
+        return sj.toString();
+    }
+
+    public static String arrayToCommaDelimitedString(Object[] arr) {
+        return arrayToDelimitedString(arr, ",");
+    }
+
+    public static String applyRelativePath(String path, String relativePath) {
+        int separatorIndex = path.lastIndexOf(FOLDER_SEPARATOR);
+        if (separatorIndex != -1) {
+            String newPath = path.substring(0, separatorIndex);
+            if (!relativePath.startsWith(FOLDER_SEPARATOR)) {
+                newPath += FOLDER_SEPARATOR;
+            }
+            return newPath + relativePath;
+        }
+        else {
+            return relativePath;
+        }
+    }
 }
