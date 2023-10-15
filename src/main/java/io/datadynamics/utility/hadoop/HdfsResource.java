@@ -1,8 +1,11 @@
-package io.datadynamics.utility.resource;
+package io.datadynamics.utility.hadoop;
 
 
 import io.datadynamics.utility.Assert;
 import io.datadynamics.utility.StringUtils;
+import io.datadynamics.utility.resource.ContextResource;
+import io.datadynamics.utility.resource.Resource;
+import io.datadynamics.utility.resource.WritableResource;
 import org.apache.hadoop.fs.*;
 import org.apache.hadoop.io.compress.CompressionCodec;
 import org.apache.hadoop.io.compress.CompressionCodecFactory;

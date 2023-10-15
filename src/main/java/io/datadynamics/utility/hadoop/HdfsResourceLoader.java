@@ -1,6 +1,10 @@
-package io.datadynamics.utility.resource;
+package io.datadynamics.utility.hadoop;
 
 import io.datadynamics.utility.*;
+import io.datadynamics.utility.resource.DefaultResourceLoader;
+import io.datadynamics.utility.resource.PathMatchingResourcePatternResolver;
+import io.datadynamics.utility.resource.Resource;
+import io.datadynamics.utility.resource.ResourcePatternResolver;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileStatus;
 import org.apache.hadoop.fs.FileSystem;
