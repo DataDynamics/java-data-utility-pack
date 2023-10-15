@@ -6,7 +6,7 @@ import java.io.File;
 /**
  * 로컬 파일 시스템의 지정한 파일의 크기를 확인하는 유틸리티 클래스.
  */
-public class FileSizeChecker {
+public class FileSizeUtils {
 
     /**
      * 1K Bytes

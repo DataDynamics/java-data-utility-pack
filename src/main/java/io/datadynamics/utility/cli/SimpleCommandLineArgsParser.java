@@ -1,4 +1,4 @@
-package io.datadynamics.utility;
+package io.datadynamics.utility.cli;
 
 public class SimpleCommandLineArgsParser {
 

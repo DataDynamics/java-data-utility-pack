@@ -1,7 +1,7 @@
 package io.datadynamics.utility;
 
-import io.datadynamics.utility.AvroUtils;
-import io.datadynamics.utility.TypeMapping;
+import io.datadynamics.utility.avro.AvroUtils;
+import io.datadynamics.utility.avro.TypeMapping;
 import org.apache.avro.Schema;
 import org.junit.Assert;
 import org.junit.Test;
