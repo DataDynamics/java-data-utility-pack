@@ -8,6 +8,13 @@ import java.util.Random;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
+/**
+ * Simple utility methods for working with network sockets &mdash; for example,
+ * for finding available ports on {@code localhost}.
+ *
+ * <p>Within this class, a TCP port refers to a port for a {@link ServerSocket};
+ * whereas, a UDP port refers to a port for a {@link DatagramSocket}.
+ */
 public class SocketUtils {
 
     /**

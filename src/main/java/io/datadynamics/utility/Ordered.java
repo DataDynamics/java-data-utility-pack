@@ -1,5 +1,20 @@
 package io.datadynamics.utility;
 
+/**
+ * {@code Ordered} is an interface that can be implemented by objects that
+ * should be <em>orderable</em>, for example in a {@code Collection}.
+ *
+ * <p>The actual {@link #getOrder() order} can be interpreted as prioritization,
+ * with the first object (with the lowest order value) having the highest
+ * priority.
+ *
+ * <p>Note that there is also a <em>priority</em> marker for this interface:
+ * {@link PriorityOrdered}. Consult the Javadoc for {@code PriorityOrdered} for
+ * details on how {@code PriorityOrdered} objects are ordered relative to
+ * <em>plain</em> {@link Ordered} objects.
+ *
+ * @see PriorityOrdered
+ */
 public interface Ordered {
 
     /**

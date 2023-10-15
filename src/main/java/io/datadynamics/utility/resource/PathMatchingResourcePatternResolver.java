@@ -132,7 +132,6 @@ import java.util.zip.ZipException;
  * @see AntPathMatcher
  * @see ResourceLoader#getResource(String)
  * @see ClassLoader#getResources(String)
- * @since 1.0.2
  */
 public class PathMatchingResourcePatternResolver implements ResourcePatternResolver {
 

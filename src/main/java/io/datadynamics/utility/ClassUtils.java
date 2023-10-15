@@ -9,6 +9,9 @@ import java.io.Serializable;
 import java.lang.reflect.*;
 import java.util.*;
 
+/**
+ * Helper class for to play with classes.
+ */
 public class ClassUtils {
 
     /**

@@ -21,7 +21,6 @@ public class UrlResource extends AbstractFileResolvingResource {
     /**
      * Original URI, if available; used for URI and File access.
      */
-
     private final URI uri;
 
     /**
@@ -32,7 +31,6 @@ public class UrlResource extends AbstractFileResolvingResource {
     /**
      * Cleaned URL (with normalized path), used for comparisons.
      */
-
     private volatile URL cleanedUrl;
 
 
@@ -140,7 +138,6 @@ public class UrlResource extends AbstractFileResolvingResource {
         this.cleanedUrl = cleanedUrl;
         return cleanedUrl;
     }
-
 
     /**
      * This implementation opens an InputStream for the given URL.
@@ -272,4 +269,3 @@ public class UrlResource extends AbstractFileResolvingResource {
     }
 
 }
-

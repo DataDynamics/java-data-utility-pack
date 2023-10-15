@@ -41,7 +41,7 @@ public class ClassPathResource extends AbstractFileResolvingResource {
      *
      * @param path the absolute path within the class path
      * @see java.lang.ClassLoader#getResourceAsStream(String)
-     * @see org.springframework.util.ClassUtils#getDefaultClassLoader()
+     * @see ClassUtils#getDefaultClassLoader()
      */
     public ClassPathResource(String path) {
         this(path, (ClassLoader) null);
@@ -200,6 +200,12 @@ public class ClassPathResource extends AbstractFileResolvingResource {
         return url;
     }
 
+    /**
+     * This implementation creates a ClassPathResource, applying the given path
+     * relative to the path of the underlying resource of this descriptor.
+     *
+     * @see StringUtils#applyRelativePath(String, String)
+     */
     @Override
     public Resource createRelative(String relativePath) {
         String pathToUse = StringUtils.applyRelativePath(this.path, relativePath);
@@ -207,6 +213,12 @@ public class ClassPathResource extends AbstractFileResolvingResource {
                 new ClassPathResource(pathToUse, this.classLoader));
     }
 
+    /**
+     * This implementation returns the name of the file that this class path
+     * resource refers to.
+     *
+     * @see StringUtils#getFilename(String)
+     */
     @Override
 
     public String getFilename() {

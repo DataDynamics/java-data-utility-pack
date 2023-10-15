@@ -5,6 +5,17 @@ import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
+/**
+ * {@link LinkedHashMap} variant that stores String keys in a case-insensitive
+ * manner, for example for key-based access in a results table.
+ *
+ * <p>Preserves the original order as well as the original casing of keys,
+ * while allowing for contains, get and remove calls with any case of key.
+ *
+ * <p>Does <i>not</i> support {@code null} keys.
+ *
+ * @param <V> the value type
+ */
 public class LinkedCaseInsensitiveMap<V> implements Map<String, V>, Serializable, Cloneable {
 
     private final LinkedHashMap<String, V> targetMap;

@@ -23,7 +23,6 @@ import java.nio.file.*;
  * {@link java.nio.file.Path} handle in which case it will perform all file system
  * interactions via NIO.2, only resorting to {@link File} on {@link #getFile()}.
  *
- * @author Juergen Hoeller
  * @see #FileSystemResource(String)
  * @see #FileSystemResource(File)
  * @see #FileSystemResource(Path)
@@ -33,7 +32,6 @@ import java.nio.file.*;
 public class FileSystemResource extends AbstractResource implements WritableResource {
 
     private final String path;
-
 
     private final File file;
 
@@ -125,7 +123,6 @@ public class FileSystemResource extends AbstractResource implements WritableReso
         this.file = null;
         this.filePath = fileSystem.getPath(this.path).normalize();
     }
-
 
     /**
      * Return the file path for this resource.
@@ -294,8 +291,6 @@ public class FileSystemResource extends AbstractResource implements WritableReso
     /**
      * This implementation creates a FileSystemResource, applying the given path
      * relative to the path of the underlying file of this resource descriptor.
-     *
-     * @see org.springframework.util.StringUtils#applyRelativePath(String, String)
      */
     @Override
     public Resource createRelative(String relativePath) {

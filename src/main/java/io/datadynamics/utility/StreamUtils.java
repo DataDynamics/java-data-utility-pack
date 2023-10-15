@@ -3,6 +3,15 @@ package io.datadynamics.utility;
 import java.io.*;
 import java.nio.charset.Charset;
 
+/**
+ * Simple utility methods for dealing with streams. The copy methods of this class are
+ * similar to those defined in {@link FileCopyUtils} except that all affected streams are
+ * left open when done. All copy methods use a block size of 4096 bytes.
+ *
+ * <p>Mainly for use within the framework, but also useful for application code.
+ *
+ * @see FileCopyUtils
+ */
 public class StreamUtils {
 
     /**

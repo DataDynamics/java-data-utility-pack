@@ -3,13 +3,19 @@ package io.datadynamics.utility.resource;
 import io.datadynamics.utility.ClassUtils;
 import io.datadynamics.utility.ResourceUtils;
 
+/**
+ * Strategy interface for loading resources (e.g., class path or file system
+ * resources).
+ *
+ * @see Resource
+ * @see ResourcePatternResolver
+ */
 public interface ResourceLoader {
 
     /**
      * Pseudo URL prefix for loading from the class path: "classpath:".
      */
     String CLASSPATH_URL_PREFIX = ResourceUtils.CLASSPATH_URL_PREFIX;
-
 
     /**
      * Return a {@code Resource} handle for the specified resource location.

@@ -4,6 +4,13 @@ import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
+/**
+ * A simple utility class for Base64 encoding and decoding.
+ *
+ * <p>Adapts to Java 8's {@link java.util.Base64} in a convenience fashion.
+ *
+ * @see java.util.Base64
+ */
 public abstract class Base64Utils {
     private static final Charset DEFAULT_CHARSET = StandardCharsets.UTF_8;
 

@@ -3,6 +3,14 @@ package io.datadynamics.utility;
 import java.io.Serializable;
 import java.util.*;
 
+/**
+ * Adapts a given {@link Map} to the {@link MultiValueMap} contract.
+ *
+ * @param <K> the key type
+ * @param <V> the value element type
+ * @see CollectionUtils#toMultiValueMap
+ * @see LinkedMultiValueMap
+ */
 public class MultiValueMapAdapter<K, V> implements MultiValueMap<K, V>, Serializable {
 
     private final Map<K, List<V>> targetMap;

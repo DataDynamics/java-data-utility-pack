@@ -2,6 +2,9 @@ package io.datadynamics.utility;
 
 import java.io.*;
 
+/**
+ * Static utilities for serialization and deserialization.
+ */
 public class SerializationUtils {
 
     /**

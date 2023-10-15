@@ -3,6 +3,13 @@ package io.datadynamics.utility;
 import java.lang.reflect.Array;
 import java.util.*;
 
+/**
+ * Miscellaneous object utility methods.
+ *
+ * @see ClassUtils
+ * @see CollectionUtils
+ * @see StringUtils
+ */
 public class ObjectUtils {
 
     private static final int INITIAL_HASH = 7;

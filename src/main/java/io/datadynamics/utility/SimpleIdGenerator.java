@@ -3,7 +3,14 @@ package io.datadynamics.utility;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicLong;
 
-public class SimpleIdGenerator {
+/**
+ * A simple {@link IdGenerator} that starts at 1, increments up to
+ * {@link Long#MAX_VALUE}, and then rolls over.
+ *
+ * @author Rossen Stoyanchev
+ * @since 4.1.5
+ */
+public class SimpleIdGenerator  implements IdGenerator {
 
     private final AtomicLong leastSigBits = new AtomicLong();
 

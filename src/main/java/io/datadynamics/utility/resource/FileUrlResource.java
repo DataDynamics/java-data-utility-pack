@@ -12,6 +12,17 @@ import java.nio.channels.WritableByteChannel;
 import java.nio.file.Files;
 import java.nio.file.StandardOpenOption;
 
+/**
+ * Subclass of {@link UrlResource} which assumes file resolution, to the degree
+ * of implementing the {@link WritableResource} interface for it. This resource
+ * variant also caches resolved {@link File} handles from {@link #getFile()}.
+ *
+ * <p>This is the class resolved by {@link DefaultResourceLoader} for a "file:..."
+ * URL location, allowing a downcast to {@link WritableResource} for it.
+ *
+ * <p>Alternatively, for direct construction from a {@link java.io.File} handle
+ * or NIO {@link java.nio.file.Path}, consider using {@link FileSystemResource}.
+ */
 public class FileUrlResource extends UrlResource implements WritableResource {
 
     private volatile File file;
@@ -42,7 +53,6 @@ public class FileUrlResource extends UrlResource implements WritableResource {
     public FileUrlResource(String location) throws MalformedURLException {
         super(ResourceUtils.URL_PROTOCOL_FILE, location);
     }
-
 
     @Override
     public File getFile() throws IOException {

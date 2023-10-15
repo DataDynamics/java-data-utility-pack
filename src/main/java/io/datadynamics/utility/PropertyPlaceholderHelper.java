@@ -5,6 +5,14 @@ import org.slf4j.LoggerFactory;
 
 import java.util.*;
 
+/**
+ * Utility class for working with Strings that have placeholder values in them.
+ * A placeholder takes the form {@code ${name}}. Using {@code PropertyPlaceholderHelper}
+ * these placeholders can be substituted for user-supplied values.
+ *
+ * <p>Values for substitution can be supplied using a {@link Properties} instance or
+ * using a {@link PlaceholderResolver}.
+ */
 public class PropertyPlaceholderHelper {
 
     private static final Logger logger = LoggerFactory.getLogger(PropertyPlaceholderHelper.class);
@@ -16,7 +24,6 @@ public class PropertyPlaceholderHelper {
         wellKnownSimplePrefixes.put("]", "[");
         wellKnownSimplePrefixes.put(")", "(");
     }
-
 
     private final String placeholderPrefix;
 

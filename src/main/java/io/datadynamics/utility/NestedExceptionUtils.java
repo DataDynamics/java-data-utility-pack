@@ -1,5 +1,16 @@
 package io.datadynamics.utility;
 
+/**
+ * Helper class for implementing exception classes which are capable of
+ * holding nested exceptions. Necessary because we can't share a base
+ * class among different exception types.
+ *
+ * <p>Mainly for use within the framework.
+ *
+ * @see NestedRuntimeException
+ * @see NestedCheckedException
+ * @see NestedIOException
+ */
 public class NestedExceptionUtils {
 
     /**

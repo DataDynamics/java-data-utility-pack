@@ -13,6 +13,15 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * Default implementation of the {@link ResourceLoader} interface.
+ *
+ * <p>Will return a {@link UrlResource} if the location value is a URL,
+ * and a {@link ClassPathResource} if it is a non-URL path or a
+ * "classpath:" pseudo-URL.
+ *
+ * @see FileSystemResourceLoader
+ */
 public class DefaultResourceLoader implements ResourceLoader {
 
     private final Set<ProtocolResolver> protocolResolvers = new LinkedHashSet<>(4);

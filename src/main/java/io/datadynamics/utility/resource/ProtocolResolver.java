@@ -21,7 +21,6 @@ public interface ProtocolResolver {
      * @return a corresponding {@code Resource} handle if the given location
      * matches this resolver's protocol, or {@code null} otherwise
      */
-
     Resource resolve(String location, ResourceLoader resourceLoader);
 
 }

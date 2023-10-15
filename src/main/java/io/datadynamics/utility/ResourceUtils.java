@@ -1,10 +1,26 @@
 package io.datadynamics.utility;
 
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.net.*;
 
+/**
+ * Utility methods for resolving resource locations to files in the
+ * file system. Mainly for internal use within the framework.
+ *
+ * <p>Consider using Spring's Resource abstraction in the core package
+ * for handling all kinds of file resources in a uniform manner.
+ * {@link io.datadynamics.utility.resource.ResourceLoader}'s {@code getResource()}
+ * method can resolve any location to a {@link io.datadynamics.utility.resource.Resource}
+ * object, which in turn allows one to obtain a {@code java.io.File} in the
+ * file system through its {@code getFile()} method.
+ *
+ * @see io.datadynamics.utility.resource.Resource
+ * @see io.datadynamics.utility.resource.ClassPathResource
+ * @see io.datadynamics.utility.resource.FileSystemResource
+ * @see io.datadynamics.utility.resource.UrlResource
+ * @see io.datadynamics.utility.resource.ResourceLoader
+ */
 public class ResourceUtils {
 
     /**

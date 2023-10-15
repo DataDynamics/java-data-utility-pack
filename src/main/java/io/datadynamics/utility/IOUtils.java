@@ -2,6 +2,11 @@ package io.datadynamics.utility;
 
 import java.io.*;
 
+/**
+ * Utility functions
+ *
+ * @Immutable (has mutable data but it is write - only)
+ */
 public class IOUtils {
 
     private static final int COPY_BUF_SIZE = 8024;

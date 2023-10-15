@@ -5,13 +5,16 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Properties;
 
+/**
+ * Spring-aware subclass of the plain {@link DefaultPropertiesPersister},
+ * adding a conditional check for disabled XML support through the shared
+ * "spring.xml.ignore" property.
+ */
 public class ResourcePropertiesPersister extends DefaultPropertiesPersister {
 
     /**
      * A convenient constant for a default {@code ResourcePropertiesPersister} instance,
      * as used in Spring's common resource support.
-     *
-     * @since 5.3
      */
     public static final ResourcePropertiesPersister INSTANCE = new ResourcePropertiesPersister();
 

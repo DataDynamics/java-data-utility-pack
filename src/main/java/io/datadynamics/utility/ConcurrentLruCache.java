@@ -6,6 +6,17 @@ import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 import java.util.function.Function;
 
+/**
+ * Simple LRU (Least Recently Used) cache, bounded by a specified cache limit.
+ *
+ * <p>This implementation is backed by a {@code ConcurrentHashMap} for storing
+ * the cached values and a {@code ConcurrentLinkedDeque} for ordering the keys
+ * and choosing the least recently used key when the cache is at full capacity.
+ *
+ * @param <K> the type of the key used for cache retrieval
+ * @param <V> the type of the cached values
+ * @see #get
+ */
 public class ConcurrentLruCache<K, V> {
 
     private final int sizeLimit;

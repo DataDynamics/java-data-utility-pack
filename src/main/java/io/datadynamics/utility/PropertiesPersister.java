@@ -3,6 +3,19 @@ package io.datadynamics.utility;
 import java.io.*;
 import java.util.Properties;
 
+/**
+ * Strategy interface for persisting {@code java.util.Properties},
+ * allowing for pluggable parsing strategies.
+ *
+ * <p>The default implementation is DefaultPropertiesPersister,
+ * providing the native parsing of {@code java.util.Properties},
+ * but allowing for reading from any Reader and writing to any Writer
+ * (which allows to specify an encoding for a properties file).
+ *
+ * @see DefaultPropertiesPersister
+ * @see ResourcePropertiesPersister
+ * @see java.util.Properties
+ */
 public interface PropertiesPersister {
 
     /**
