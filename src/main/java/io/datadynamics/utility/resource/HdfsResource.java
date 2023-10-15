@@ -1,4 +1,4 @@
-package io.datadynamics.utility;
+package io.datadynamics.utility.resource;
 
 
 import java.io.File;
@@ -8,6 +8,8 @@ import java.io.OutputStream;
 import java.net.URI;
 import java.net.URL;
 
+import io.datadynamics.utility.Assert;
+import io.datadynamics.utility.StringUtils;
 import org.apache.hadoop.fs.FileStatus;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.LocalFileSystem;

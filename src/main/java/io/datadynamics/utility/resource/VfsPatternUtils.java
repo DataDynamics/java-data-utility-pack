@@ -1,4 +1,6 @@
-package io.datadynamics.utility;
+package io.datadynamics.utility.resource;
+
+import io.datadynamics.utility.resource.VfsUtils;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationHandler;

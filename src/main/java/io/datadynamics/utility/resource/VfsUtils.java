@@ -1,4 +1,6 @@
-package io.datadynamics.utility;
+package io.datadynamics.utility.resource;
+
+import io.datadynamics.utility.ReflectionUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -139,7 +141,6 @@ public abstract class VfsUtils {
     }
 
     // protected methods used by the support sub-package
-
     protected static Object getRoot(URL url) throws IOException {
         return invokeVfsMethod(VFS_METHOD_GET_ROOT_URL, null, url);
     }

@@ -1,4 +1,7 @@
-package io.datadynamics.utility;
+package io.datadynamics.utility.resource;
+
+import io.datadynamics.utility.Assert;
+import io.datadynamics.utility.NestedIOException;
 
 import java.io.File;
 import java.io.IOException;

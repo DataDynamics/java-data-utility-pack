@@ -1,4 +1,8 @@
-package io.datadynamics.utility;
+package io.datadynamics.utility.resource;
+
+import io.datadynamics.utility.Assert;
+import io.datadynamics.utility.ResourceUtils;
+import io.datadynamics.utility.StringUtils;
 
 import java.io.File;
 import java.io.IOException;

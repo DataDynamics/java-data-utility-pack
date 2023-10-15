@@ -1,4 +1,8 @@
-package io.datadynamics.utility;
+package io.datadynamics.utility.resource;
+
+import io.datadynamics.utility.resource.DefaultResourceLoader;
+import io.datadynamics.utility.resource.Resource;
+import io.datadynamics.utility.resource.ResourceLoader;
 
 /**
  * A resolution strategy for protocol-specific resource handles.

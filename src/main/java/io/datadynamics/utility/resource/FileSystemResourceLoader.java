@@ -1,4 +1,4 @@
-package io.datadynamics.utility;
+package io.datadynamics.utility.resource;
 
 public class FileSystemResourceLoader extends DefaultResourceLoader {
 

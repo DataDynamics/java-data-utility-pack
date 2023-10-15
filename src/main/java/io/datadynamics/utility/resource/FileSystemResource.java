@@ -1,4 +1,6 @@
-package io.datadynamics.utility;
+package io.datadynamics.utility.resource;
+
+import io.datadynamics.utility.*;
 
 import java.io.*;
 import java.net.URI;

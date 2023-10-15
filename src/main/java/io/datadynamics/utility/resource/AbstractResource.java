@@ -1,5 +1,8 @@
-package io.datadynamics.utility;
+package io.datadynamics.utility.resource;
 
+import io.datadynamics.utility.NestedIOException;
+import io.datadynamics.utility.ResourceUtils;
+import io.datadynamics.utility.resource.Resource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

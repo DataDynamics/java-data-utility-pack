@@ -1,5 +1,6 @@
-package io.datadynamics.utility;
+package io.datadynamics.utility.resource;
 
+import io.datadynamics.utility.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

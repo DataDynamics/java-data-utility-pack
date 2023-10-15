@@ -1,5 +1,6 @@
-package io.datadynamics.utility;
+package io.datadynamics.utility.resource;
 
+import io.datadynamics.utility.*;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileStatus;
 import org.apache.hadoop.fs.FileSystem;

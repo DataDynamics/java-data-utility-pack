@@ -1,4 +1,7 @@
-package io.datadynamics.utility;
+package io.datadynamics.utility.resource;
+
+import io.datadynamics.utility.resource.Resource;
+import io.datadynamics.utility.resource.ResourceLoader;
 
 import java.io.IOException;
 
