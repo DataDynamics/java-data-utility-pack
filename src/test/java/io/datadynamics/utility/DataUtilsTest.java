@@ -7,7 +7,7 @@ public class DataUtilsTest {
 
     @Test
     void generateSampleFile() throws Exception {
-        DataUtils.generateSampleFile("target/helloworld.csv", 100);
+        DataUtils.generateSampleFile("target/helloworld.csv", 5);
     }
 
 }

@@ -3,8 +3,10 @@ package io.datadynamics.utility.hadoop;
 import io.datadynamics.utility.FileUtils;
 import io.datadynamics.utility.StringUtils;
 import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.fs.*;
+import org.apache.hadoop.fs.FileStatus;
 import org.apache.hadoop.fs.FileSystem;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.fs.PathFilter;
 import org.apache.hadoop.hdfs.DFSClient;
 import org.apache.hadoop.hdfs.protocol.HdfsFileStatus;
 import org.apache.hadoop.mapreduce.InputSplit;
@@ -550,4 +552,5 @@ public class HdfsUtils {
         }
         return files;
     }
+
 }
