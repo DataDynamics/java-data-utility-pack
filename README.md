@@ -147,3 +147,38 @@ Schema bookOrder = SchemaBuilder.record("BookOrder")
   ]
 }
 ```
+
+## Miscellaneous
+
+### Generate Object From JSON
+
+```xml
+<dependency>
+    <groupId>org.jsonschema2pojo</groupId>
+    <artifactId>jsonschema2pojo-core</artifactId>
+    <version>1.1.1</version>
+</dependency>
+```
+
+```java
+public static void convertJsonToJavaClass(URL inputJsonUrl, File outputJavaClassDirectory, String packageName, String javaClassName) throws IOException {
+    JCodeModel jcodeModel = new JCodeModel();
+
+    GenerationConfig config = new DefaultGenerationConfig() {
+        @Override
+        public boolean isGenerateBuilders() {
+            return true;
+        }
+
+        @Override
+        public SourceType getSourceType() {
+            return SourceType.JSON;
+        }
+    };
+
+    SchemaMapper mapper = new SchemaMapper(new RuleFactory(config, new Jackson2Annotator(config), new SchemaStore()), new SchemaGenerator());
+    mapper.generate(jcodeModel, javaClassName, packageName, inputJsonUrl);
+
+    jcodeModel.build(outputJavaClassDirectory);
+}
+```
