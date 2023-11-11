@@ -217,9 +217,9 @@ public class Jisql {
     private static final String mySQLConnectJDriverName = "com.mysql.jdbc.Driver";
     private static final String mySQLCauchoDriverName = "com.caucho.jdbc.mysql.Driver";
 
-    private static final String defaultFormatterClassName = "com.xigole.util.sql.outputformatter.DefaultFormatter";
-    private static final String csvFormatterClassName = "com.xigole.util.sql.outputformatter.CSVFormatter";
-    private static final String xmlFormatterClassName = "com.xigole.util.sql.outputformatter.XMLFormatter";
+    private static final String defaultFormatterClassName = "shaded.com.xigole.util.sql.outputformatter.DefaultFormatter";
+    private static final String csvFormatterClassName = "shaded.com.xigole.util.sql.outputformatter.CSVFormatter";
+    private static final String xmlFormatterClassName = "shaded.com.xigole.util.sql.outputformatter.XMLFormatter";
 
     private String driverName = null;
     private String connectString = null;
