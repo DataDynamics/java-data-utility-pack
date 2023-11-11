@@ -1,6 +1,6 @@
 package shaded.com.github.vertical_blank.sqlformatter.core;
 
-import com.github.vertical_blank.sqlformatter.core.util.JSLikeList;
+import shaded.com.github.vertical_blank.sqlformatter.core.util.JSLikeList;
 
 /**
  * Bookkeeper for inline blocks.

@@ -1,6 +1,6 @@
 package shaded.com.github.vertical_blank.sqlformatter.core;
 
-import com.github.vertical_blank.sqlformatter.core.util.Util;
+import shaded.com.github.vertical_blank.sqlformatter.core.util.Util;
 
 import java.util.Arrays;
 import java.util.List;

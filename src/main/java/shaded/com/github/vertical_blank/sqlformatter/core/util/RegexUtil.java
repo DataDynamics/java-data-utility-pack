@@ -1,6 +1,6 @@
 package shaded.com.github.vertical_blank.sqlformatter.core.util;
 
-import com.github.vertical_blank.sqlformatter.languages.StringLiteral;
+import shaded.com.github.vertical_blank.sqlformatter.languages.StringLiteral;
 
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;

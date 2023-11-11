@@ -148,6 +148,12 @@ Schema bookOrder = SchemaBuilder.record("BookOrder")
 }
 ```
 
+## Dependencies
+
+* JISQL https://github.com/stdunbar/jisql
+  * JOPT Simple (https://github.com/jopt-simple/jopt-simple)
+  * SQL Formatter (https://github.com/vertical-blank/sql-formatter)
+
 ## Miscellaneous
 
 ### Generate Object From JSON

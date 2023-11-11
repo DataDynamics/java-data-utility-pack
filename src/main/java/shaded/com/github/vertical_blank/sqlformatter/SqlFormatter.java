@@ -1,9 +1,9 @@
 package shaded.com.github.vertical_blank.sqlformatter;
 
-import com.github.vertical_blank.sqlformatter.core.AbstractFormatter;
-import com.github.vertical_blank.sqlformatter.core.DialectConfig;
-import com.github.vertical_blank.sqlformatter.core.FormatConfig;
-import com.github.vertical_blank.sqlformatter.languages.*;
+import shaded.com.github.vertical_blank.sqlformatter.core.AbstractFormatter;
+import shaded.com.github.vertical_blank.sqlformatter.core.DialectConfig;
+import shaded.com.github.vertical_blank.sqlformatter.core.FormatConfig;
+import shaded.com.github.vertical_blank.sqlformatter.languages.*;
 
 import java.util.List;
 import java.util.Map;

@@ -1416,4 +1416,176 @@ public class StringUtils {
     private static boolean isOws(char c) {
         return c == SPACE || c == TAB;
     }
+
+
+    public static boolean equals(String str1, String str2) {
+        boolean ret = false;
+
+        if (str1 == null) {
+            ret = str2 == null;
+        } else if (str2 == null) {
+            ret = false;
+        } else {
+            ret = str1.equals(str2);
+        }
+
+        return ret;
+    }
+
+    public static boolean equalsIgnoreCase(String str1, String str2) {
+        boolean ret = false;
+
+        if (str1 == null) {
+            ret = str2 == null;
+        } else if (str2 == null) {
+            ret = false;
+        } else {
+            ret = str1.equalsIgnoreCase(str2);
+        }
+
+        return ret;
+    }
+
+    public static boolean equals(Collection<String> set1, Collection<String> set2) {
+        boolean ret = false;
+
+        if (set1 == null) {
+            ret = set2 == null;
+        } else if (set2 == null) {
+            ret = false;
+        } else if (set1.size() == set2.size()) {
+            ret = set1.containsAll(set2);
+        }
+
+        return ret;
+    }
+
+    public static boolean equalsIgnoreCase(Collection<String> set1, Collection<String> set2) {
+        boolean ret = false;
+
+        if (set1 == null) {
+            ret = set2 == null;
+        } else if (set2 == null) {
+            ret = false;
+        } else if (set1.size() == set2.size()) {
+            int numFound = 0;
+
+            for (String str1 : set1) {
+                boolean str1Found = false;
+
+                for (String str2 : set2) {
+                    if (equalsIgnoreCase(str1, str2)) {
+                        str1Found = true;
+
+                        break;
+                    }
+                }
+
+                if (str1Found) {
+                    numFound++;
+                } else {
+                    break;
+                }
+            }
+
+            ret = numFound == set1.size();
+        }
+
+        return ret;
+    }
+
+    public static boolean matches(String pattern, String str) {
+        boolean ret = false;
+
+        if (pattern == null || str == null || pattern.isEmpty() || str.isEmpty()) {
+            ret = true;
+        } else {
+            ret = str.matches(pattern);
+        }
+
+        return ret;
+    }
+
+    public static boolean contains(String str, String strToFind) {
+        return str != null && strToFind != null && str.contains(strToFind);
+    }
+
+    public static boolean containsIgnoreCase(String str, String strToFind) {
+        return str != null && strToFind != null && str.toLowerCase().contains(strToFind.toLowerCase());
+    }
+
+    public static boolean contains(String[] strArr, String str) {
+        boolean ret = false;
+
+        if (strArr != null && strArr.length > 0 && str != null) {
+            for (String s : strArr) {
+                ret = equals(s, str);
+
+                if (ret) {
+                    break;
+                }
+            }
+        }
+
+        return ret;
+    }
+
+    public static boolean containsIgnoreCase(String[] strArr, String str) {
+        boolean ret = false;
+
+        if (strArr != null && strArr.length > 0 && str != null) {
+            for (String s : strArr) {
+                ret = equalsIgnoreCase(s, str);
+
+                if (ret) {
+                    break;
+                }
+            }
+        }
+
+        return ret;
+    }
+
+    public static String toString(Iterable<String> iterable) {
+        String ret = "";
+
+        if (iterable != null) {
+            int count = 0;
+            for (String str : iterable) {
+                if (count == 0)
+                    ret = str;
+                else
+                    ret += (", " + str);
+                count++;
+            }
+        }
+
+        return ret;
+    }
+
+    public static String toString(String[] arr) {
+        String ret = "";
+
+        if (arr != null && arr.length > 0) {
+            ret = arr[0];
+            for (int i = 1; i < arr.length; i++) {
+                ret += (", " + arr[i]);
+            }
+        }
+
+        return ret;
+    }
+
+    public static String toString(List<String> arr) {
+        String ret = "";
+
+        if (arr != null && !arr.isEmpty()) {
+            ret = arr.get(0);
+            for (int i = 1; i < arr.size(); i++) {
+                ret += (", " + arr.get(i));
+            }
+        }
+
+        return ret;
+    }
 }

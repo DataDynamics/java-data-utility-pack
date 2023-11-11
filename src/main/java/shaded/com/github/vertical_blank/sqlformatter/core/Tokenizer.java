@@ -1,8 +1,8 @@
 package shaded.com.github.vertical_blank.sqlformatter.core;
 
-import com.github.vertical_blank.sqlformatter.core.util.JSLikeList;
-import com.github.vertical_blank.sqlformatter.core.util.RegexUtil;
-import com.github.vertical_blank.sqlformatter.core.util.Util;
+import shaded.com.github.vertical_blank.sqlformatter.core.util.JSLikeList;
+import shaded.com.github.vertical_blank.sqlformatter.core.util.RegexUtil;
+import shaded.com.github.vertical_blank.sqlformatter.core.util.Util;
 
 import java.util.ArrayList;
 import java.util.Arrays;
