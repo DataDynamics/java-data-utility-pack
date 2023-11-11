@@ -1,8 +1,8 @@
 package io.datadynamics.utility;
 
 import com.google.common.base.Joiner;
-import shaded.org.apache.commons.lang3.RandomStringUtils;
-import shaded.org.apache.commons.lang3.RandomUtils;
+import io.datadynamics.shaded.org.apache.commons.lang3.RandomStringUtils;
+import io.datadynamics.shaded.org.apache.commons.lang3.RandomUtils;
 
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
