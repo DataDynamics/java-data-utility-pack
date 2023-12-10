@@ -26,7 +26,7 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 import io.datadynamics.shaded.org.apache.commons.lang3.*;
-import shaded.org.apache.commons.lang3.*;
+import io.datadynamics.shaded.org.apache.commons.lang3.*;
 
 /**
  * Utilities for working with {@link Field}s by reflection. Adapted and refactored from the dormant [reflect] Commons

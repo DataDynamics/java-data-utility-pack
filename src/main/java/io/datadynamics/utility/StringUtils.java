@@ -1588,4 +1588,28 @@ public class StringUtils {
 
         return ret;
     }
+
+    /**
+     * 지정한 문자열을 축약한다.
+     *
+     * @param str 축약할 문자열
+     * @param len 문자열 길이
+     * @return 축약한 문자열
+     */
+    public static String abbreviateString(String str, int len) {
+        if (str == null) {
+            return "null";
+        }
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("\"");
+        if (str.length() > len - 2) {
+            sb.append(str.substring(0, len - 5)).append("...");
+        } else {
+            sb.append(str);
+        }
+        sb.append("\"");
+
+        return sb.toString();
+    }
 }

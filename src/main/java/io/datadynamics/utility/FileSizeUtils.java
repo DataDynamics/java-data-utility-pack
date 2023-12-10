@@ -38,6 +38,11 @@ public class FileSizeUtils {
      */
     public static long ONE_HUNDRED_MEGA_BYTES = 100 * 1024 * 1024;
 
+    private static final long KB = ONE_KILO_BYTES;
+    private static final long MB = 1024 * KB;
+    private static final long GB = 1024 * MB;
+    private static final long TB = 1024 * GB;
+
     /**
      * 지정한 경로의 파일의 1K 바이트보다 작은지 확인한다.
      *
@@ -106,6 +111,34 @@ public class FileSizeUtils {
      */
     public static boolean lessThanSpecificSize(long size, String path) {
         return new File(path).length() < size;
+    }
+
+    public static String humanReadable(float bytes) {
+        if (bytes > TB) {
+            return String.format("%.03f TB", bytes / TB);
+        } else if (bytes > GB) {
+            return String.format("%.03f GB", bytes / GB);
+        } else if (bytes > MB) {
+            return String.format("%.03f MB", bytes / MB);
+        } else if (bytes > KB) {
+            return String.format("%.03f kB", bytes / KB);
+        } else {
+            return String.format("%.02f B", bytes);
+        }
+    }
+
+    public static String humanReadable(long bytes) {
+        if (bytes > TB) {
+            return String.format("%.03f TB", ((float) bytes) / TB);
+        } else if (bytes > GB) {
+            return String.format("%.03f GB", ((float) bytes) / GB);
+        } else if (bytes > MB) {
+            return String.format("%.03f MB", ((float) bytes) / MB);
+        } else if (bytes > KB) {
+            return String.format("%.03f kB", ((float) bytes) / KB);
+        } else {
+            return String.format("%d B", bytes);
+        }
     }
 
 }

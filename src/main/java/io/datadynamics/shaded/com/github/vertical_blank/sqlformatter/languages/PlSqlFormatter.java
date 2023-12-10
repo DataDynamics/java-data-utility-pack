@@ -1,7 +1,7 @@
 package io.datadynamics.shaded.com.github.vertical_blank.sqlformatter.languages;
 
 import io.datadynamics.shaded.com.github.vertical_blank.sqlformatter.core.*;
-import shaded.com.github.vertical_blank.sqlformatter.core.*;
+import io.datadynamics.shaded.com.github.vertical_blank.sqlformatter.core.*;
 
 import java.util.Arrays;
 import java.util.Collections;

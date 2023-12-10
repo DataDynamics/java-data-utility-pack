@@ -34,7 +34,7 @@ import java.util.stream.Stream;
 
 import io.datadynamics.shaded.org.apache.commons.lang3.exception.ExceptionUtils;
 import io.datadynamics.shaded.org.apache.commons.lang3.function.*;
-import shaded.org.apache.commons.lang3.function.*;
+import io.datadynamics.shaded.org.apache.commons.lang3.function.*;
 import io.datadynamics.shaded.org.apache.commons.lang3.function.FailableBooleanSupplier;
 
 /**
