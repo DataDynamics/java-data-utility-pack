@@ -3,7 +3,7 @@ package io.datadynamics.utility;
 import java.util.*;
 
 /**
- * Utilities methods for manipulating dates in iso8601 format. This is much much faster and GC friendly than
+ * Utilities methods for manipulating dates in iso8601 format. This is much faster and GC friendly than
  * using SimpleDateFormat so highly suitable if you (un)serialize lots of date objects.
  */
 public class ISO8601Utils {
